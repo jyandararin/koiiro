@@ -1,0 +1,12 @@
+# OS
+Thumbs.db
+.DS_Store
+
+# npmModules
+**/node_modules
+
+# Sass
+.sass-cache
+
+# Dist
+dist/

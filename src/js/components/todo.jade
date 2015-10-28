@@ -1,0 +1,26 @@
+todo
+  <!-- layout -->
+  h1 { opts.title }
+
+  ul
+    li(each='{ item, i in items }') { item }
+
+  form(onsubmit='{ add }')
+    input
+    button Add { items.length + 1 }
+
+  <!-- style -->
+  style.
+    h3 {
+      font-size: 14px;
+    }
+
+  <!-- logic -->
+  script.
+    this.items = []
+
+    add = (e) => {
+      let input = e.target[0]
+      this.items.push(input.value)
+      input.value = ''
+    }

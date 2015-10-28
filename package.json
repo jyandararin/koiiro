@@ -1,0 +1,27 @@
+{
+  "name": "koiiro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "riot": "^2.2.4"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babelify": "^6.3.0",
+    "browser-sync": "^2.9.11",
+    "browserify": "^11.2.0",
+    "gulp": "^3.9.0",
+    "gulp-compass": "^2.1.0",
+    "gulp-jade": "^1.1.0",
+    "riotify": "^0.1.2",
+    "run-sequence": "^1.1.4",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
