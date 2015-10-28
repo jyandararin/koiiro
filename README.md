@@ -3,4 +3,4 @@
 
 ## View
 
-* http://jyandararin.github.io/koiiro/
+* http://zyandararin.github.io/koiirogodo/
