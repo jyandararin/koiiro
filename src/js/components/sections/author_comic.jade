@@ -2,7 +2,7 @@ section-author--comic
   div#author-wrapper
     ul.author-list
       li.author-list__box(
-        each='{item, i in items}',
+        each='{item, i in authorComic}',
         style='animation-delay: {i*50}ms',
         onmouseenter='{onMouseEnter}',
         onmouseleave='{onMouseLeave}'
@@ -20,9 +20,8 @@ section-author--comic
                 img.sns(src='./images/twitter.svg')
 
   script.
-    import authors from './author_comic.json';
     const $ = App.Plugins.jQuery;
-    self.items = authors;
+    self.authorComic = App.Utils.authorComic;
 
     onMouseEnter = (e) => {
       let $li = $(e.target);

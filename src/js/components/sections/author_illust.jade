@@ -2,7 +2,7 @@ section-author--ilust
   div#author-wrapper
     ul.author-list
       li.author-list__box(
-        each='{item, i in items}',
+        each='{item, i in authorIllust}',
         style='animation-delay: {i*50}ms',
         onmouseenter='{onMouseEnter}',
         onmouseleave='{onMouseLeave}'
@@ -20,9 +20,8 @@ section-author--ilust
                 img.sns(src='./images/twitter.svg')
 
   script.
-    import authors from './author_illust.json';
     const $ = App.Plugins.jQuery;
-    self.items = authors;
+    self.authorIllust = App.Utils.authorIllust;
 
     onMouseEnter = (e) => {
       let $li = $(e.target);
