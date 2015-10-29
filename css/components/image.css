@@ -1,0 +1,10 @@
+/**
+ * Image Settings
+ **/
+body {
+  height: 5000px;
+}
+
+img#logo {
+  max-width: 500px;
+}
