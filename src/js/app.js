@@ -1,11 +1,8 @@
 'use strict';
-import riot from 'riot';
-import './components/todo.jade';
+import App        from './_app_';
+import Plugins    from './_plugins_';
+import Components from './components/_components_';
+import Utils      from './utils/_utils_';
 
-class App {
-  constructor() {
-    riot.mount('*', { title: 'I want to behavior!' });
-  }
-}
+App.run();
 
-export default new App();

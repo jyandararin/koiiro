@@ -1,0 +1,99 @@
+/**
+ * Author Component
+ **/
+$caption-height: 50px;
+
+#author-wrapper {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 48%;
+  min-width: 690px;
+  height: 100%;
+
+  ul.author-list {
+    font-size: 0;
+    height: 100%;
+  }
+
+  li.author-list__box {
+    font-size: 1rem;
+    display: inline-block;
+    width: 33.3%;
+    height: calc(33.3% - 2rem);
+    margin: 1rem 0;
+    overflow: hidden;
+    position: relative;
+    -webkit-animation: zoomOut 1.0s ease both;
+    animation: zoomOut 1.0s ease both;
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    animation-play-state: paused;
+
+    .box-wrapper {
+      position: absolute;
+      -webkit-perspective: 1000px;
+      perspective: 1000px;
+      width: 100%;
+      height: 100%;
+      -webkit-transition: .5s;
+      -moz-transition: .5s;
+      transition: .5s;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+
+      &:hover {
+        transform: rotateY(180deg);
+      }
+
+      %box-content{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+
+      .box__image {
+        @extend %box-content;
+        font-size: 0;
+        z-index: 2;
+        img {
+          border: 1px solid #9DE0AD;
+          border-radius: 50%;
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin: auto;
+          z-index: -1;
+          height: calc(100% - 2px);
+        }
+      }
+
+      .box__caption {
+        @extend %box-content;
+        z-index: 1;
+        transform: rotateY(180deg);
+        p {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          width: 100%;
+          height: 4rem;
+          line-height: 2rem;
+          text-align: center;
+
+          img.sns {
+            width: auto;
+            height: 1rem;
+            margin: 0 .5rem
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,11 @@
+/**
+ * Top Component
+ **/
+
+img#logo {
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: 1.0s;
+  -moz-transition: 1.0s;
+  transition: 1.0s;
+}

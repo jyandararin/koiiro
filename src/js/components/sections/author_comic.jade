@@ -1,0 +1,41 @@
+section-author--comic
+  div#author-wrapper
+    ul.author-list
+      li.author-list__box(
+        each='{item, i in items}',
+        style='animation-delay: {i*50}ms',
+        onmouseenter='{onMouseEnter}',
+        onmouseleave='{onMouseLeave}'
+      )
+        div.box-wrapper
+          div.box__image
+            img(src='./images/a{i+1}.png')
+          div.box__caption.cf
+            p
+              | {item.name}
+              br
+              a(if='{item.pixiv}', href='http://www.pixiv.net/member.php?id={item.pixiv}', target='_blank')
+                img.sns(src='./images/pixiv.svg')
+              a(if='{item.twitter}', href='http://twitter.com/{item.twitter}', target='_blank')
+                img.sns(src='./images/twitter.svg')
+
+  script.
+    import authors from './author_comic.json';
+    const $ = App.Plugins.jQuery;
+    self.items = authors;
+
+    onMouseEnter = (e) => {
+      let $li = $(e.target);
+      $li.find('.box--image').addClass('active');
+      $li.find('.box--caption').animate({
+        bottom: 0
+      }, 300);
+    }
+
+    onMouseLeave = (e) => {
+      let $li = $(e.target);
+      $li.find('.box--image').removeClass('active');
+      $li.find('.box--caption').animate({
+        bottom: -50 + 'px'
+      }, 300)
+    }
