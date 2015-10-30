@@ -6,11 +6,10 @@ section-author--comic
         style='animation-delay: {i*50}ms'
       )
         div.box-wrapper(
-              onmouseenter='{onEnterComic}',
-              ontouchstart='{onEnterComjc}',
-              onmouseleave='{onLeaveComic}',
-              ontouchend='{onLeaveComic}'
-          )
+          onclick='{onClickComic}',
+          onmouseenter='{onEnterComic}',
+          onmouseleave='{onLeaveComic}',
+        )
           div.box__image
             img(src='./images/a{i+1}.png')
           div.box__caption.cf
@@ -26,14 +25,31 @@ section-author--comic
     const $ = App.Plugins.jQuery;
     self.authorComic = App.Utils.authorComic;
 
-    onEnterComic = (e) => {
+    _addActiveClass = (e) => {
       let $li = $(e.target);
       $li.find('.box__caption').addClass('active');
       $li.find('.box__image img').addClass('active');
     }
-
-    onLeaveComic = (e) => {
+    _removeActiveClass = (e) => {
       let $li = $(e.target);
       $li.find('.box__caption').removeClass('active');
       $li.find('.box__image img').removeClass('active');
+    }
+
+    onClickComic = (e) => {
+      if (window.TouchEvent !== undefined) {
+        if (!$(e.target).find('.box__caption').hasClass('active')) {
+          _addActiveClass(e);
+        } else {
+          _removeActiveClass(e);
+        }
+      }
+    }
+
+    onEnterComic = (e) => {
+      _addActiveClass(e);
+    }
+
+    onLeaveComic = (e) => {
+      _removeActiveClass(e);
     }
