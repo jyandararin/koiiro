@@ -20,6 +20,7 @@ div#background {
     top: 100px;
     right: -20px;
     -webkit-animation: tweetBalloon 1.0s ease both;
+    -moz-animation: tweetBalloon 1.0s ease both;
     animation: tweetBalloon 1.0s ease both;
   }
 }

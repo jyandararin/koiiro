@@ -3,11 +3,14 @@ section-author--ilust
     ul.author-list
       li.author-list__box(
         each='{item, i in authorIllust}',
-        style='animation-delay: {i*50}ms',
-        onmouseenter='{onMouseEnter}',
-        onmouseleave='{onMouseLeave}'
+        style='animation-delay: {i*50}ms'
       )
-        div.box-wrapper
+        div.box-wrapper(
+          onmouseenter='{onEnterIllust}',
+          ontouchstart='{onEnterIllust}',
+          onmouseleave='{onLeaveIllust}',
+          ontouchend='{onLeaveIllust}'
+        )
           div.box__image
             img(src='./images/a{i+8}.png')
           div.box__caption.cf
@@ -23,18 +26,14 @@ section-author--ilust
     const $ = App.Plugins.jQuery;
     self.authorIllust = App.Utils.authorIllust;
 
-    onMouseEnter = (e) => {
+    onEnterIllust = (e) => {
       let $li = $(e.target);
-      $li.find('.box--image').addClass('active');
-      $li.find('.box--caption').animate({
-        bottom: 0
-      }, 300);
+      $li.find('.box__caption').addClass('active');
+      $li.find('.box__image img').addClass('active');
     }
 
-    onMouseLeave = (e) => {
+    onLeaveIllust = (e) => {
       let $li = $(e.target);
-      $li.find('.box--image').removeClass('active');
-      $li.find('.box--caption').animate({
-        bottom: -50 + 'px'
-      }, 300)
+      $li.find('.box__caption').removeClass('active');
+      $li.find('.box__image img').removeClass('active');
     }

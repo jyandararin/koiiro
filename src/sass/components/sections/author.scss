@@ -25,6 +25,7 @@ $caption-height: 50px;
     overflow: hidden;
     position: relative;
     -webkit-animation: zoomOut 1.0s ease both;
+    -moz-animation: zoomOut 1.0s ease both;
     animation: zoomOut 1.0s ease both;
     -webkit-animation-play-state: paused;
     -moz-animation-play-state: paused;
@@ -32,34 +33,21 @@ $caption-height: 50px;
 
     .box-wrapper {
       position: absolute;
-      -webkit-perspective: 1000px;
-      perspective: 1000px;
       width: 100%;
       height: 100%;
-      -webkit-transition: .5s;
-      -moz-transition: .5s;
-      transition: .5s;
-      -webkit-transform-style: preserve-3d;
-      transform-style: preserve-3d;
-
-      &:hover {
-        transform: rotateY(180deg);
-      }
 
       %box-content{
         position: absolute;
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        -webkit-backface-visibility: hidden;
-        -moz-backface-visibility: hidden;
-        backface-visibility: hidden;
       }
 
       .box__image {
         @extend %box-content;
         font-size: 0;
         z-index: 2;
+
         img {
           border: 1px solid #45ADA8;
           border-radius: 50%;
@@ -69,13 +57,27 @@ $caption-height: 50px;
           margin: auto;
           z-index: -1;
           height: calc(100% - 2px);
+          -webkit-transition: .5s;
+          -moz-transition: .5s;
+          transition: .5s;
+          -webkit-perspective: 1000px;
+          perspective: 1000px;
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          backface-visibility: hidden;
+          -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+        }
+        img.active {
+          -webkit-transform: rotateY(180deg);
+          -moz-transform: rotateY(180deg);
+          transform: rotateY(180deg);
         }
       }
 
       .box__caption {
         @extend %box-content;
         z-index: 1;
-        transform: rotateY(180deg);
         p {
           position: absolute;
           top: 0;
@@ -92,6 +94,9 @@ $caption-height: 50px;
             margin: 0 .5rem
           }
         }
+      }
+      .box__caption.active {
+        z-index: 10 !important;
       }
     }
   }

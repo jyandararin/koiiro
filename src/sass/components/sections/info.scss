@@ -11,6 +11,7 @@
   bottom: 0;
   margin: auto;
   -webkit-animation: slideInLeft 1.0s ease both;
+  -moz-animation: slideInLeft 1.0s ease both;
   animation: slideInLeft 1.0s ease both;
   -webkit-animation-play-state: paused;
   -moz-animation-play-state: paused;
@@ -22,12 +23,6 @@
     font-weight: bold;
     color: #FC9D9A;
     margin-bottom: .5rem;
-  }
-
-  .info__subtitle {
-    font-size: 1.1rem;
-    color: #FC9D9A;
-    margin-bottom: 1rem;
   }
 
   .detail-wrapper {
