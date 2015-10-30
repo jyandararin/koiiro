@@ -6,9 +6,8 @@ section-author--ilust
         style='animation-delay: {i*50}ms'
       )
         div.box-wrapper(
-          onclick='{onClickIllust}',
-          onmouseenter='{onEnterIllust}',
-          onmouseleave='{onLeaveIllust}',
+          onmouseenter='{onEnter}',
+          onmouseleave='{onLeave}',
         )
           div.box__image
             img(src='./images/a{i+8}.png')
@@ -24,21 +23,3 @@ section-author--ilust
   script.
     const $ = App.Plugins.jQuery;
     self.authorIllust = App.Utils.authorIllust;
-
-    onClickIllust = (e) => {
-      if (window.TouchEvent !== undefined) {
-        if (!$(e.target).find('.box__caption').hasClass('active')) {
-          _addActiveClass(e);
-        } else {
-          _removeActiveClass(e);
-        }
-      }
-    }
-
-    onEnterIllust = (e) => {
-      _addActiveClass(e);
-    }
-
-    onLeaveIllust = (e) => {
-      _removeActiveClass(e);
-    }

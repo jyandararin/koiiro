@@ -6,9 +6,8 @@ section-author--comic
         style='animation-delay: {i*50}ms'
       )
         div.box-wrapper(
-          onclick='{onClickComic}',
-          onmouseenter='{onEnterComic}',
-          onmouseleave='{onLeaveComic}',
+          onmouseenter='{onEnter}',
+          onmouseleave='{onLeave}',
         )
           div.box__image
             img(src='./images/a{i+1}.png')
@@ -36,20 +35,10 @@ section-author--comic
       $li.find('.box__image img').removeClass('active');
     }
 
-    onClickComic = (e) => {
-      if (window.TouchEvent !== undefined) {
-        if (!$(e.target).find('.box__caption').hasClass('active')) {
-          _addActiveClass(e);
-        } else {
-          _removeActiveClass(e);
-        }
-      }
-    }
-
-    onEnterComic = (e) => {
+    onEnter = (e) => {
       _addActiveClass(e);
     }
 
-    onLeaveComic = (e) => {
+    onLeave = (e) => {
       _removeActiveClass(e);
     }
