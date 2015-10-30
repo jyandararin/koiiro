@@ -18,7 +18,7 @@ export default function onLeave(index, next, direction) {
 
   switch(next) {
     case 1:
-      $bg.fadeOut(() => $bg.text("Top").fadeIn());
+      $bg.fadeOut(() => $bg.html("&#9829;").fadeIn());
       break;
     case 2:
       $bg.fadeOut(() => $bg.text("Comic").fadeIn());
