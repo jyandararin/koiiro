@@ -27,7 +27,6 @@ section-author--comic
     self.authorComic = App.Utils.authorComic;
 
     onEnterComic = (e) => {
-      console.log($(e.target));
       let $li = $(e.target);
       $li.find('.box__caption').addClass('active');
       $li.find('.box__image img').addClass('active');
